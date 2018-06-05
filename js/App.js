@@ -12,7 +12,7 @@ function track(element)
 {
 	if(element === "document")
 	{
-		console.log("user clicked randomly on the screen");
+		//console.log("user clicked randomly on the screen");
 	}
 	else
 	{
@@ -30,6 +30,12 @@ class App
  	{
 		//adds click event to entire document
 	  document.addEventListener("mousedown",function(){track("document")});
+
+		//sets up classes to listen to
+		// this.listenArr = ["signin-box"];
+		// this.listen = new Listened(this.listenArr);
+		// this.listen.setUpListening();
+
 		this.net = new Net();
 
 		this.audioManager = new AudioManager();

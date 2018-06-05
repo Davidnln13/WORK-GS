@@ -16,6 +16,7 @@ class SeeStandardsTeacherController
 		var fileLoad = document.getElementById("standards-html-file");
 
 		addStandards.addEventListener("click", function(){fileLoad.click();} );
+		addStandard.addEventListener("click", function(){track("add-standards")});
 		fileLoad.addEventListener("change", function(){that.addStandard();});
 	}
 

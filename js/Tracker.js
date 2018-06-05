@@ -20,8 +20,8 @@ class Tracker
     format_date(d)
     {
      var dformat;
-      dformat = [d.getMonth()+1,
-               d.getDate(),
+      dformat = [d.getDate(),
+               d.getMonth()+1,
                d.getFullYear()].join('/')+' '+
               [d.getHours(),
                d.getMinutes(),

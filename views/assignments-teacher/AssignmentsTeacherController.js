@@ -16,6 +16,7 @@ class AssignmentsTeacherController
 		{
 			controller.createAddAssignmentModal();
 		});
+		addBtn.addEventListener("click", function(){track("add-assignment-button")});
 	}
 
 
