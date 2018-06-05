@@ -1,8 +1,26 @@
 var app;
+//array to hold trackers
+var trackers = [];
+//initial set up of base tracker
+var tracker = new Tracker("1","2","3");
 
 function main()
 {
 	app = new App();
+}
+function track(element)
+{
+	if(element === "document")
+	{
+		console.log("user clicked randomly on the screen");
+	}
+	else
+	{
+		//makes a new tracker of the elements details pushes i t to the array and logs it in the console
+		tracker = new Tracker(document.getElementById(element).id, new Date(), document.getElementById(element).nodeName);
+		trackers.push(tracker);
+		tracker.logThis();
+	}
 }
 
 /**SpaceRocket**/
@@ -10,6 +28,8 @@ class App
 {
  	constructor()
  	{
+		//adds click event to entire document
+	  document.addEventListener("mousedown",function(){track("document")});
 		this.net = new Net();
 
 		this.audioManager = new AudioManager();
@@ -298,19 +318,3 @@ getRandomAdjective = function () {
 
 
 setInterval(function(){ app.heartbeat() }, 20000);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
