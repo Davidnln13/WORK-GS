@@ -12,8 +12,22 @@ class SignupController
 		var that = this;
 
 		var signupButton = document.getElementById("signup-button");
+		var email = document.getElementById("signup-email");
+		var name = document.getElementById("signup-name");
+    var surname = document.getElementById("signup-surname");
+		var noun = document.getElementById("signup-noun");
+		var password = document.getElementById("signup-password");
+		var passwordConfirm = document.getElementById("signup-confirm-password");
 
 		signupButton.addEventListener("click", function(){that.signup()} );
+		signupButton.addEventListener("click", function(){track("signup-button")} );
+		email.addEventListener("click", function(){track("signup-email")} );
+		name.addEventListener("click", function(){track("signup-name")} );
+		surname.addEventListener("click", function(){track("signup-surname")} );
+		noun.addEventListener("click", function(){track("signup-noun")} );
+		password.addEventListener("click", function(){track("signup-password")} );
+		passwordConfirm.addEventListener("click", function(){track("signup-confirm-password")} );
+
 	}
 
 	signup(e)

@@ -29,7 +29,7 @@ class App
  	constructor()
  	{
 		//adds click event to entire document
-	  document.addEventListener("mousedown",function(){track("document")});
+	 // document.addEventListener("mousedown",function(){track("document")});
 
 		//sets up classes to listen to
 		// this.listenArr = ["signin-box"];

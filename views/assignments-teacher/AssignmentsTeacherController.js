@@ -12,16 +12,32 @@ class AssignmentsTeacherController
 		console.log(this.model);
 
 		var addBtn = document.getElementById("add-assignment-button");
+
+
 		addBtn.addEventListener("click", function()
 		{
 			controller.createAddAssignmentModal();
 		});
-		addBtn.addEventListener("click", function(){track("add-assignment-button")});
+
+		// var name = document.getElementById("assignment-name");
+		// var deadline = document.getElementById("assignment-submission-deadline");
+		// var reviewDeadline = document.getElementById("assignment-review-deadline");
+		// var description = document.getElementById("assignment-description");
+		// var reviewersAmount = document.getElementById("assignment-total-reviewers");
+		//
+		// name.addEventListener("click", function(){track("assignment-name")});
+		// deadline.addEventListener("click", function(){track("assignment-submission-deadline")});
+		// reviewDeadline.addEventListener("click", function(){track("assignment-review-deadline")});
+		// description.addEventListener("click", function(){track("assignment-description")});
+		// reviewersAmount.addEventListener("click", function(){track("assignment-total-reviewers")});
 	}
 
 
 	createAddAssignmentModal()
 	{
+		//for some reason doesnt work as its own call
+		track("add-assignment-button");
+
 		var controller = this;
 
 		// Init Modal
@@ -32,8 +48,7 @@ class AssignmentsTeacherController
 
 		//Set minimum datetime and current datetime to now.
 		var today = new Date().toISOString();
-		today = today.substr(0, today.lastIndexOf("."));
-
+		today = today.substr(0, today.lastIndexOf("."));	
 
 		document.getElementById("assignment-submission-deadline").min = today;
 		document.getElementById("assignment-submission-deadline").value = today;
@@ -55,11 +70,10 @@ class AssignmentsTeacherController
 
 	createAssignment()
 	{
-		var name = document.getElementById("assignment-name").value;
 
+		var name = document.getElementById("assignment-name").value;
 		var deadlineDate = document.getElementById("assignment-submission-deadline").value.split('T')[0];
 		var deadlineTime = document.getElementById("assignment-submission-deadline").value.split('T')[1];
-
 		var reviewTillDate = document.getElementById("assignment-review-deadline").value.split('T')[0];
 		var reviewTillTime = document.getElementById("assignment-review-deadline").value.split('T')[1];
 

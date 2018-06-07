@@ -10,13 +10,7 @@ class AssignmentsStudentController
 	setup()
 	{
 		var controller = this;
-
-		var submit = document.getElementById("submit-assignment");
-		submit.addEventListener("click", function(){track("submit-assignment")});
-
-		var add = document.getElementById("add-assignment");
-		add.addEventListener("click", function(){track("add-assignment")});
-
+	
 		console.log(this.model);
 	}
 
