@@ -1,0 +1,61 @@
+Your task will be to enhance the tracker system you previously developed	
+
+	////DONE////
+
+	1 *Record the date and time when the interaction occured:
+		-store year, month and day.
+		-store hour, minute, second and milisecond.
+		-best format is store like this: https://www.w3schools.com/jsref/jsref_gettime.asp
+			-there should be conversions from that type into readable date
+			-needed for easier sorting if such a thing will be needed.
+
+	////DONE////	
+		
+	2 *Record following interactions with the system:
+		-Clicking:
+			-What buttons does user press
+			-What "interactables" does he press
+				e.g. a piture with methods on them
+				
+			looked into doesnt work as its by html class which would end up being probably more code than just adding event listener
+			(Design wise - what if we add a classname "listened" the elements we want to listen?  Read this: https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class )
+		
+		-System responses:
+			-Ones user does something, system may respond.  I would like to know the following responces:
+				-Page transitions (e.g. transitioned to homepage)
+				-Server communications (e.g. sign in successful)
+	////DONE////		
+		-User entering and leaving the site.
+	////DONE////
+
+	***in on close method read in variable from my sql
+	***add to variable with current array
+	***push variable back up
+
+	3 *Save the logs into the DB in the User's Table.
+		-There will be a large "variable" which stores a log per user.
+		-I want you to get the original log and append a new log to it.
+	
+	////DONE/////	
+		Log structure should have the following structure.
+			*log.dateAndTime
+			*log.type            //Based on interaction which made the recording.
+			*log.content         //a variable (like JSON) which has interaction related data
+			
+		Logs (note "s") can be an array which stores a log.
+	////DONE////	
+	
+		
+		bigger variable type
+-Content can vary depending on what your tracker detected.  It can be an element ID, server message, leaving page.
+
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		

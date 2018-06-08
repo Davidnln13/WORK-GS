@@ -23,6 +23,10 @@ function track(element)
 	}
 }
 
+window.onbeforeunload = function(){
+   tracker.logAll(trackers);
+}
+
 /**SpaceRocket**/
 class App
 {
