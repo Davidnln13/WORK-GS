@@ -49,6 +49,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 			self.signup(message_data)
 
 		elif message_type == "signin":
+			print("in server.py")
 			self.signin(message_data)
 
 		elif message_type == "add_assignment":
@@ -78,6 +79,9 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 		elif message_type == "get_standard":
 			self.get_standard()
 
+		elif message_type == "update_table":
+			self.update_table(message_data)
+
 
 
 	def signup(self, message_data):
@@ -102,6 +106,39 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 				ip_address = ip + ":" + str(port)
 
 			print("signup successful", ip_address)
+			message[1]["users"] = {}
+
+			connection = {}
+			connection["ip"] = ip_address
+			connection["socket"] = self
+			connection["user_data"] = message[1]
+
+			connections[message[1]["email"]] = 	connection
+
+			print("Connections", connections)
+
+	def update_table(self, message_data):
+		message= user_manager.update_table(message_data)
+		self.send_message(message[0], message[1])
+
+		if  message[0] =="update_table":
+			#Save connection in there.
+			ip_address = ""
+
+			# Get IP and Port from connection context if possible
+			address = self.request.connection.context.address
+			if address:
+				ip = address[0]
+				port = str(address[1])
+				ip_address = ip + ":" + port
+
+			# Original method
+			else:
+				ip = self.request.remote_ip
+				port = self.request.stream.socket.getpeername()[1]
+				ip_address = ip + ":" + str(port)
+
+			print("update_table", ip_address)
 			message[1]["users"] = {}
 
 			connection = {}

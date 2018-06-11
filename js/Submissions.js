@@ -51,13 +51,13 @@ class Submissions extends Model {
         }
 
 
-        app.net.sendMessage("submit_review", data);
+        net.sendMessage("submit_review", data);
     }
 
     update(data, messageType)
     {
-        if (    messageType === app.net.messageHandler.types.SUBMIT_ASSIGNMENT_SUCCESSFUL ||
-                messageType === app.net.messageHandler.types.GET_SUBMISSIONS_SUCCESSFUL)
+        if (    messageType === net.messageHandler.types.SUBMIT_ASSIGNMENT_SUCCESSFUL ||
+                messageType === net.messageHandler.types.GET_SUBMISSIONS_SUCCESSFUL)
         {
             this.submissions = [];
             for (var i = 0; i < data.length; i++)
@@ -73,12 +73,12 @@ class Submissions extends Model {
     getPersonalSubmissions(id)
     {
         var userID = id;
-        app.net.sendMessage("get_submissions", {"user_id":userID});
+        net.sendMessage("get_submissions", {"user_id":userID});
     }
 
     getAllSubmissions(){
 
-        app.net.sendMessage("get_all_submissions",{});
+        net.sendMessage("get_all_submissions",{});
     }
 
     getIfSubmitted(assignmentID, userID)

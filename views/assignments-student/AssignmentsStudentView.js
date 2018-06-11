@@ -21,8 +21,8 @@ class AssignmentsStudentView extends View
 		var reviewDeadlineTable = document.getElementById("student-assignments-review-deadlines-table");
 
 		// Update the table of assessments
-		if (messageType === app.net.messageHandler.types.GET_ASSIGNMENTS_SUCCESSFUL ||
-			messageType === app.net.messageHandler.types.ASSIGNMENT_DELETE_SUCCESSFUL  )
+		if (messageType === net.messageHandler.types.GET_ASSIGNMENTS_SUCCESSFUL ||
+			messageType === net.messageHandler.types.ASSIGNMENT_DELETE_SUCCESSFUL  )
 		{
 			// remove all data in there.
 			var rowCount = assignmentTable.rows.length;
@@ -82,8 +82,8 @@ class AssignmentsStudentView extends View
 		}
 
 
-		else if (messageType === app.net.messageHandler.types.GET_SUBMISSIONS_SUCCESSFUL ||
-				messageType === app.net.messageHandler.types.SUBMIT_ASSIGNMENT_SUCCESSFUL)
+		else if (messageType === net.messageHandler.types.GET_SUBMISSIONS_SUCCESSFUL ||
+				messageType === net.messageHandler.types.SUBMIT_ASSIGNMENT_SUCCESSFUL)
 		{
 			// Clean all ticks
 			for(var k in this.tickAreas) {

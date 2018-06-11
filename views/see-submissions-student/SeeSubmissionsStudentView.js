@@ -15,8 +15,8 @@ class SeeSubmissionsStudentView extends View
 		var view = this;
 
 		// Update the table of assessments
-		if (messageType === app.net.messageHandler.types.GET_SUBMISSIONS_SUCCESSFUL ||
-			messageType === app.net.messageHandler.types.SUBMIT_ASSIGNMENT_SUCCESSFUL)
+		if (messageType === net.messageHandler.types.GET_SUBMISSIONS_SUCCESSFUL ||
+			messageType === net.messageHandler.types.SUBMIT_ASSIGNMENT_SUCCESSFUL)
 		{
 			var submissionsTable = document.getElementById("student-submissions-table");
 

@@ -17,6 +17,15 @@ class Tracker
         console.log("at " + this.format_date(trackArr[i].time) + " User pressed " + trackArr[i].name + " which is of type " + trackArr[i].type);
       }
     }
+    trackerString(trackArr)
+    {
+      var trackStrArr = [];
+      for(var i = 0;  i < trackArr.length; i++)
+      {
+        trackStrArr.push(trackArr[i].toString());
+      }
+      return trackStrArr;
+    }
     format_date(d)
     {
      var dformat;

@@ -7,6 +7,7 @@ class UserManager:
 
 	def signin(self, message_data):
 		"""Returns message type : string"""
+		print("in user_manager.py")
 		result = False
 		message_type = "signin_failed"
 		data = {}
@@ -38,6 +39,19 @@ class UserManager:
 
 		except:
 			message_type = "signup_failed"
+
+		message = [message_type, data]
+
+		return message
+
+	def update_table(self, message_data):
+		"""Returns message type : string"""
+		data = {}
+		message_type = "update_table"
+		try:
+			self.database_manager.update_table("Users", message_data)
+		except:
+			message_type = "update_failed"
 
 		message = [message_type, data]
 

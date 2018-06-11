@@ -13,7 +13,7 @@ class SigninView extends View
 	/**Called whenever the model changes**/
 	onNotify (model, messageType)
 	{
-		if(messageType === app.net.messageHandler.types.SIGN_IN_SUCCESSFUL)
+		if(messageType === net.messageHandler.types.SIGN_IN_SUCCESSFUL)
 		{
 			var menuPanel = 0;
 
@@ -35,7 +35,7 @@ class SigninView extends View
 			viewNameBox.style.display = "block";
 		}
 
-		else if(messageType === app.net.messageHandler.types.SIGN_IN_FAILED)
+		else if(messageType === net.messageHandler.types.SIGN_IN_FAILED)
 		{
 			this.controller.showError("Details incorrect, please try again!");
 		}

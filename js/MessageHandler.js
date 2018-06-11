@@ -4,6 +4,9 @@ class MessageHandler
 	constructor  ()
 	{
 		this.types = {
+			UPDATE_TABLE: "update_table",
+			UPDATE_FAILED: "update_failed",
+
 			SIGN_IN_SUCCESSFUL: "signin_successful",
 			SIGN_IN_FAILED: "signin_failed",
 
@@ -38,7 +41,7 @@ class MessageHandler
 
 	handleMessage (message)
 	{
-
+		console.log("in messagehandler");
 		var msg = JSON.parse(message);
 		var type = msg.type;
 		var data = msg.data;

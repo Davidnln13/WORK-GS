@@ -11,9 +11,9 @@ class Assignments extends Model
     {
         if (data !== "" && !Number.isInteger(data))
         {
-            if (   messageType === app.net.messageHandler.types.TEACHER_ASSIGNMENTS_CREATION_SUCCESSFUL ||
-                        messageType === app.net.messageHandler.types.GET_ASSIGNMENTS_SUCCESSFUL ||
-                        messageType === app.net.messageHandler.types.ASSIGNMENT_DELETE_SUCCESSFUL)
+            if (   messageType === net.messageHandler.types.TEACHER_ASSIGNMENTS_CREATION_SUCCESSFUL ||
+                        messageType === net.messageHandler.types.GET_ASSIGNMENTS_SUCCESSFUL ||
+                        messageType === net.messageHandler.types.ASSIGNMENT_DELETE_SUCCESSFUL)
             {
                 this.assignments = [];
                 for (var i = 0; i < data.length; i++)
@@ -40,17 +40,17 @@ class Assignments extends Model
         data.status = "normal";
 
 
-        app.net.sendMessage("add_assignment", data);
+        net.sendMessage("add_assignment", data);
     }
 
     getAllAssignment()
     {
-        app.net.sendMessage("get_assignments", {});
+        net.sendMessage("get_assignments", {});
     }
 
     deleteAssignment(id)
     {
-        app.net.sendMessage("delete_assignment", {"id":id});
+        net.sendMessage("delete_assignment", {"id":id});
     }
 
     submitAssignment(assignmentID, filesSubmitted)
@@ -85,6 +85,6 @@ class Assignments extends Model
         }
 
 
-        app.net.sendMessage("submit_assignment", data);
+        net.sendMessage("submit_assignment", data);
     }
 }

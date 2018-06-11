@@ -13,7 +13,7 @@ class SignupView extends View
 	/**Called whenever the model changes**/
 	onNotify (model, messageType)
 	{
-		if(messageType === app.net.messageHandler.types.SIGN_UP_SUCCESSFUL)
+		if(messageType === net.messageHandler.types.SIGN_UP_SUCCESSFUL)
 		{
 			document.getElementById("mps-assignments-button").click();
 			var menuPanel = document.getElementById("menupanel-student");
@@ -24,7 +24,7 @@ class SignupView extends View
 
 		}
 
-		else if(messageType === app.net.messageHandler.types.SIGN_UP_FAILED)
+		else if(messageType === net.messageHandler.types.SIGN_UP_FAILED)
 		{
 			this.controller.showError("The email/profile name is already registered in the system or you have not filled everything");
 		}

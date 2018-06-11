@@ -15,9 +15,9 @@ class AssignmentsTeacherView extends View
 		var view = this;
 
 		// Update the table of assessments
-		if (messageType === app.net.messageHandler.types.TEACHER_ASSIGNMENTS_CREATION_SUCCESSFUL ||
-			messageType === app.net.messageHandler.types.GET_ASSIGNMENTS_SUCCESSFUL ||
-			messageType === app.net.messageHandler.types.ASSIGNMENT_DELETE_SUCCESSFUL )
+		if (messageType === net.messageHandler.types.TEACHER_ASSIGNMENTS_CREATION_SUCCESSFUL ||
+			messageType === net.messageHandler.types.GET_ASSIGNMENTS_SUCCESSFUL ||
+			messageType === net.messageHandler.types.ASSIGNMENT_DELETE_SUCCESSFUL )
 		{
 			var assignmentTable = document.getElementById("teacher-assignments-table");
 

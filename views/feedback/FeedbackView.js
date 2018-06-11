@@ -17,7 +17,7 @@ class FeedbackView extends View
 		var view = this;
 
 		// Update the table of assignments
-		if (messageType === app.net.messageHandler.types.GET_SUBMISSIONS_SUCCESSFUL)
+		if (messageType === net.messageHandler.types.GET_SUBMISSIONS_SUCCESSFUL)
 		{
             var submissionsTable = document.getElementById("student-assignment-feedback-table");
 

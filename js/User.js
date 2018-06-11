@@ -10,7 +10,8 @@ class User extends Model
         this.surname = "";
         this.noun = "";
         this.role = "";
-        this.id = ""
+        this.id = "";
+        this.log = "";
     }
 
 
@@ -18,8 +19,8 @@ class User extends Model
     {
       if (data !== "" && !Number.isInteger(data))
       {
-          if (messageType === app.net.messageHandler.types.SIGN_IN_SUCCESSFUL ||
-                messageType === app.net.messageHandler.types.SIGN_UP_SUCCESSFUL)
+          if (messageType === net.messageHandler.types.SIGN_IN_SUCCESSFUL ||
+                messageType === net.messageHandler.types.SIGN_UP_SUCCESSFUL)
             {
                 this.setData(data);
 
@@ -54,7 +55,7 @@ class User extends Model
         userData.password = password;
         userData.role = "student";
 
-        app.net.sendMessage("signup", userData);
+        net.sendMessage("signup", userData);
     }
 
     signin(email, password)
@@ -63,7 +64,7 @@ class User extends Model
         userData.email = email;
         userData.password = password;
 
-        app.net.sendMessage("signin", userData);
+        net.sendMessage("signin", userData);
     }
 
     setData(data)
@@ -74,5 +75,7 @@ class User extends Model
          this.noun =  data.noun;
          this.role = data.role;
          this.id = data.id;
+         this.log = data.log;
+
     }
 }

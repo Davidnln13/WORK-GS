@@ -37,6 +37,8 @@ class Net
 
 	sendMessage (type, data)
 	{
+		console.log("in net.js");
+		console.log(type, data);
 		var msg = {};
 		msg.data = data;
 		msg.type = type;

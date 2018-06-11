@@ -55,6 +55,27 @@ class DatabaseManager:
 		connector.close()
 		print("complete")
 
+	def update_table(self, table_name, my_dict):
+		# connector = self.cnxpool.get_connection()
+		# cursor = connector.cursor(dictionary=True)
+		#
+		# placeholders = ", ".join(["%s"] * len(my_dict))
+		#
+		# stmt = "UPDATE `{table}` SET "
+		# stmt = "INSERT INTO `{table}` ({columns}) VALUES ({values});".format(
+		# 	table=table_name,
+		# 	columns=",".join(my_dict.keys()),
+		# 	values=placeholders
+		# )
+
+
+		# cursor.execute(stmt, list(my_dict.values()))
+		#
+		# connector.commit()
+		# cursor.close()
+		# connector.close()
+		print("table updated")
+
 
 	def replace_into_table(self, table_name, my_dict):
 		connector = self.cnxpool.get_connection()
@@ -149,11 +170,11 @@ class DatabaseManager:
 	def get_user_info(self, message_data):
 		#print ("get_user_data")
 		email = message_data["email"]
-
+		print("0")
 		connector = self.cnxpool.get_connection()
 		cursor = connector.cursor(dictionary=True)
 		query = ("SELECT * FROM Users WHERE Users.email='"+email+"'")
-
+		print("1")
 		#print(query)
 
 		cursor.execute(query)
@@ -255,16 +276,3 @@ class DatabaseManager:
 		print ("RESULT:", submission["feedbacks"])
 
 		self.replace_into_table("Submissions", submission)
-
-
-
-
-
-
-
-
-
-
-
-
-

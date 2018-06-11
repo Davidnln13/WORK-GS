@@ -12,7 +12,7 @@ class SeeStandardsStudentView extends View
 
 	onNotify (model, messageType)
 	{
-		if ( messageType === app.net.messageHandler.types.GET_STANDARD_SUCCESSFUL)
+		if ( messageType === net.messageHandler.types.GET_STANDARD_SUCCESSFUL)
 		{
 			var table = document.getElementById("standards-st-table");
 
