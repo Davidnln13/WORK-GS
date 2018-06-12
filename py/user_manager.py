@@ -46,13 +46,12 @@ class UserManager:
 
 	def update_table(self, message_data):
 		"""Returns message type : string"""
-		data = {}
+		print(message_data)
 		message_type = "update_table"
-		try:
-			self.database_manager.update_table("Users", message_data)
-		except:
-			message_type = "update_failed"
-
-		message = [message_type, data]
-
+		data = message_data
+		# try:
+		self.database_manager.update_table("Users", message_data)
+		# except:
+		# 	message_type = "update_failed"
+		message = [message_type, message_data]
 		return message

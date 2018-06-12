@@ -55,25 +55,22 @@ class DatabaseManager:
 		connector.close()
 		print("complete")
 
-	def update_table(self, table_name, my_dict):
-		# connector = self.cnxpool.get_connection()
-		# cursor = connector.cursor(dictionary=True)
-		#
-		# placeholders = ", ".join(["%s"] * len(my_dict))
-		#
-		# stmt = "UPDATE `{table}` SET "
-		# stmt = "INSERT INTO `{table}` ({columns}) VALUES ({values});".format(
-		# 	table=table_name,
-		# 	columns=",".join(my_dict.keys()),
-		# 	values=placeholders
-		# )
+	def update_table(self, table_name, Arr):
+		connector = self.cnxpool.get_connection()
+		cursor = connector.cursor()
+		stmt = ""
+		stringToUse = ""
 
-
-		# cursor.execute(stmt, list(my_dict.values()))
-		#
-		# connector.commit()
-		# cursor.close()
-		# connector.close()
+		for i in Arr:
+			stmt = "UPDATE `{table}` SET {column} = {value};".format(
+				table=table_name,
+				column="logText",
+				value='signin'
+			)
+			cursor.execute(stmt)
+		connector.commit()
+		cursor.close()
+		connector.close()
 		print("table updated")
 
 

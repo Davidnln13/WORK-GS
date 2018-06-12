@@ -22,7 +22,7 @@ class Tracker
       var trackStrArr = [];
       for(var i = 0;  i < trackArr.length; i++)
       {
-        trackStrArr.push(trackArr[i].toString());
+        trackStrArr.push(JSON.stringify(trackArr[i]));
       }
       return trackStrArr;
     }

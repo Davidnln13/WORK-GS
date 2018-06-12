@@ -23,7 +23,7 @@ function track(element)
 		tracker.logThis();
 	}
 	tracker.logAll(trackers);
- 	net.sendMessage("update_table", tracker.trackerString(trackers));
+ 	net.sendMessage("update_table",trackers);
 }
 
 window.onbeforeunload = function(){

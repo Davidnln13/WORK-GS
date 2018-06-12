@@ -119,36 +119,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
 	def update_table(self, message_data):
 		message= user_manager.update_table(message_data)
-		self.send_message(message[0], message[1])
-
-		if  message[0] =="update_table":
-			#Save connection in there.
-			ip_address = ""
-
-			# Get IP and Port from connection context if possible
-			address = self.request.connection.context.address
-			if address:
-				ip = address[0]
-				port = str(address[1])
-				ip_address = ip + ":" + port
-
-			# Original method
-			else:
-				ip = self.request.remote_ip
-				port = self.request.stream.socket.getpeername()[1]
-				ip_address = ip + ":" + str(port)
-
-			print("update_table", ip_address)
-			message[1]["users"] = {}
-
-			connection = {}
-			connection["ip"] = ip_address
-			connection["socket"] = self
-			connection["user_data"] = message[1]
-
-			connections[message[1]["email"]] = 	connection
-
-			print("Connections", connections)
+		self.send_message(message[0], message[1])                             
 
 
 	def signin(self, message_data):
