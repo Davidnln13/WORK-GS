@@ -65,9 +65,6 @@ class SeeSubmissionsStudentView extends View
 
 					app.viewManager.goToView(app.viewManager.VIEW.CODE_VIEW);
 				});
-
-
-
 			}
 		}
 	}

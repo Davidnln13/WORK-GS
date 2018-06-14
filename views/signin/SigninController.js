@@ -19,6 +19,11 @@ class SigninController
 		signupButton.addEventListener("click", function(){app.viewManager.goToView("signup");} );
 		signupButton.addEventListener("click", function(){track("signup-link")});
 
+		//Desigh idea
+		// bindClickFunction(signupButton,  function(){app.viewManager.goToView("signup");} );
+		
+
+
 		var email = document.getElementById("signin-email");
 		email.addEventListener("click", function(){track("signin-email")});
 

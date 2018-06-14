@@ -55,18 +55,25 @@ class DatabaseManager:
 		connector.close()
 		print("complete")
 
-	def update_table(self, table_name, Arr):
+	def update_table(self, table_name, tracker_arr):
 		connector = self.cnxpool.get_connection()
 		cursor = connector.cursor()
 		stmt = ""
 		stringToUse = ""
 
-		for i in Arr:
-			stmt = "UPDATE `{table}` SET {column} = {value};".format(
+
+		for i in tracker_arr:
+
+
+		#	stringToUse = "User pressed " + i["name"] + " at " + i["time"] + " which is of type " + i["type"] + " \n "
+
+
+			stmt = "UPDATE `{table}` SET {column} = CONCAT(ifnull({column},'{value}'),'{value}');".format(
 				table=table_name,
-				column="logText",
-				value='signin'
+				column="logs",
+				value=json.dumps(i)
 			)
+
 			cursor.execute(stmt)
 		connector.commit()
 		cursor.close()
