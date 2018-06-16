@@ -59,19 +59,15 @@ class DatabaseManager:
 		connector = self.cnxpool.get_connection()
 		cursor = connector.cursor()
 		stmt = ""
-		stringToUse = ""
-
 
 		for i in tracker_arr:
 
-
-		#	stringToUse = "User pressed " + i["name"] + " at " + i["time"] + " which is of type " + i["type"] + " \n "
-
-
-			stmt = "UPDATE `{table}` SET {column} = CONCAT(ifnull({column},'{value}'),'{value}');".format(
+			stmt = "UPDATE `{table}` SET {column} = CONCAT(ifnull({column},'{value}'), '{value}') WHERE {field} = '{conditional}';".format(
 				table=table_name,
 				column="logs",
-				value=json.dumps(i)
+				value=json.dumps(i),
+				field="email",
+				conditional="q"
 			)
 
 			cursor.execute(stmt)

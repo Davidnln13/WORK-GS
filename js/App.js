@@ -13,18 +13,15 @@ function track(element)
 {
 	if(element === "document")
 	{
-		//console.log("user clicked randomly on the screen");
+		console.log("user clicked randomly on the screen");
 	}
 	else
 	{
 		//makes a new tracker of the elements details pushes i t to the array and logs it in the console
-		tracker = new Tracker(document.getElementById(element).id, new Date(), document.getElementById(element).nodeName);
+		tracker = new Tracker(document.getElementById(element).id, new Date(), document.getElementById(element).nodeName, app.user.email);
 		trackers.push(tracker);
 		tracker.logThis();
 	}
-	tracker.logAll(trackers);
-
- 	net.sendMessage("update_table",trackers);
 }
 
 window.onbeforeunload = function(){

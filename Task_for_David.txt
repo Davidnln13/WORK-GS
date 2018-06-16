@@ -26,7 +26,7 @@ Your task will be to enhance the tracker system you previously developed
 				-Server communications (e.g. sign in successful)
 	////DONE////
 		-User entering and leaving the site.
-	////DONE////
+	
 
 	***in on close method read in variable from my sql
 	***add to variable with current array
@@ -36,7 +36,6 @@ Your task will be to enhance the tracker system you previously developed
 		-There will be a large "variable" which stores a log per user.
 		-I want you to get the original log and append a new log to it.
 
-	////DONE/////
 		Log structure should have the following structure.
 			*log.dateAndTime
 			*log.type            //Based on interaction which made the recording.
