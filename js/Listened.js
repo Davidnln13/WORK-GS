@@ -1,15 +1,31 @@
 class Listened
 {
-  constructor(lisArr)
+  constructor()
   {
-    this.classesToListen = lisArr;
+
   }
   setUpListening()
   {
-    var className = document.getElementsByClassName(this.classesToListen);
-    for(var i = 0; i < className.length; i++)
+    var docBody = document.getElementsByTagName("body")[0];
+    console.log("Testing");
+    console.log(docBody);
+
+    var docBodyChildren = document.getElementsByTagName("body")[0].children;
+    console.log(docBodyChildren);
+
+  //  this.recursiveCheck(docBody);
+
+  }
+  recursiveCheck(docBodyIn)
+  {
+    console.log(docBodyIn);
+    for (var i=0; i<docBodyIn.length; i++)
     {
-      classname[i].addEventListener('click', function(){track(document.getElementById(className[i].id))}, false);
+      if(docBodyIn[i].hasChildNodes())
+      {
+        //	console.log(elementList[i].children)
+      }
+      console.log(docBodyIn[i]);
     }
   }
 }

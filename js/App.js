@@ -38,11 +38,6 @@ class App
 		//adds click event to entire document
 	 // document.addEventListener("mousedown",function(){track("document")});
 
-		//sets up classes to listen to
-		// this.listenArr = ["signin-box"];
-		// this.listen = new Listened(this.listenArr);
-		// this.listen.setUpListening();
-
 		this.audioManager = new AudioManager();
 
 		this.viewManager= new ViewManager();
@@ -61,6 +56,9 @@ class App
 		//load resources
 		this.loadResources();
 
+		//sets up classes to listen to
+		this.listen = new Listened();
+		this.listen.setUpListening();
 		var that = this;
 
 		this.audioManager.downloadAll(function() {
