@@ -35,8 +35,6 @@ class AssignmentsTeacherController
 
 	createAddAssignmentModal()
 	{
-		//for some reason doesnt work as its own call
-		track("add-assignment-button");
 
 		var controller = this;
 
@@ -48,7 +46,7 @@ class AssignmentsTeacherController
 
 		//Set minimum datetime and current datetime to now.
 		var today = new Date().toISOString();
-		today = today.substr(0, today.lastIndexOf("."));	
+		today = today.substr(0, today.lastIndexOf("."));
 
 		document.getElementById("assignment-submission-deadline").min = today;
 		document.getElementById("assignment-submission-deadline").value = today;

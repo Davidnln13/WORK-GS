@@ -20,13 +20,6 @@ class SignupController
 		var passwordConfirm = document.getElementById("signup-confirm-password");
 
 		signupButton.addEventListener("click", function(){that.signup()} );
-		signupButton.addEventListener("click", function(){track("signup-button")} );
-		email.addEventListener("click", function(){track("signup-email")} );
-		name.addEventListener("click", function(){track("signup-name")} );
-		surname.addEventListener("click", function(){track("signup-surname")} );
-		noun.addEventListener("click", function(){track("signup-noun")} );
-		password.addEventListener("click", function(){track("signup-password")} );
-		passwordConfirm.addEventListener("click", function(){track("signup-confirm-password")} );
 
 	}
 

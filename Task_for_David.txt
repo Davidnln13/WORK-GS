@@ -20,13 +20,10 @@ Your task will be to enhance the tracker system you previously developed
 			looked into doesnt work as its by html class which would end up being probably more code than just adding event listener
 			(Design wise - what if we add a classname "listened" the elements we want to listen?  Read this: https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class )
 
-		-System responses:
-			-Ones user does something, system may respond.  I would like to know the following responces:
-				-Page transitions (e.g. transitioned to homepage)
-				-Server communications (e.g. sign in successful)
+
 	////DONE////
 		-User entering and leaving the site.
-	
+
 
 	***in on close method read in variable from my sql
 	***add to variable with current array

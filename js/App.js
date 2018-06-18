@@ -1,6 +1,7 @@
 var app;
 //array to hold trackers
 var trackers = [];
+//var elementsToTrack = [];
 //initial set up of base tracker
 var tracker = new Tracker("1","2","3");
 
@@ -23,7 +24,21 @@ function track(element)
 		tracker.logThis();
 	}
 }
-
+// function trackTheseElements(elementArr)
+// {
+// 	for(var i =0; i< elementArr.length; i++)
+// 	{
+// 		try
+// 		{
+// 			document.getElementById(elementArr[i].id).addEventListener("click", function(){track(elementArr[i].id)});
+// 		}
+// 		catch (e)
+// 		{
+// 				//console.log("mocnewfo");
+// 		}
+//
+// 	}
+// }
 window.onbeforeunload = function(){
 
    tracker.logAll(trackers);
@@ -56,16 +71,15 @@ class App
 		//load resources
 		this.loadResources();
 
-		//sets up classes to listen to
-		this.listen = new Listened();
-		this.listen.setUpListening();
 		var that = this;
 
 		this.audioManager.downloadAll(function() {
 			that.templateManager.downloadAll(function()	{
 				that.modalContentManager.downloadAll(function () {
+
 					app.setup();
 		});});});
+
 	}
 
 
@@ -91,6 +105,12 @@ class App
 		this.setupViews();
 
 		this.setupMenuPanel();
+
+		//sets up classes to listen to
+		this.listen = new Listened();
+		this.listen.setUpListening();
+	//	trackTheseElements(elementsToTrack);
+
 
 		this.viewManager.goToView("signin");
 	}

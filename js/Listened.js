@@ -6,26 +6,47 @@ class Listened
   }
   setUpListening()
   {
-    var docBody = document.getElementsByTagName("body")[0];
-    console.log("Testing");
-    console.log(docBody);
-
+    //list of children of the body
     var docBodyChildren = document.getElementsByTagName("body")[0].children;
     console.log(docBodyChildren);
 
-  //  this.recursiveCheck(docBody);
+    this.recursiveCheck(docBodyChildren);
 
   }
+
   recursiveCheck(docBodyIn)
   {
-    console.log(docBodyIn);
+    //for every element in the body
     for (var i=0; i<docBodyIn.length; i++)
     {
-      if(docBodyIn[i].hasChildNodes())
+      //if it has at least 1 child
+      if(docBodyIn[i].children.length > 0)
       {
-        //	console.log(elementList[i].children)
+        //recursively pass in that child to this method
+        //check if it has children
+        this.recursiveCheck(docBodyIn[i].children);
+        //console.log("going to child of", docBodyIn[i].id);
       }
-      console.log(docBodyIn[i]);
+      else
+      {
+        try
+        {
+          //if the element has no children try add an addEventListener to it which will only work if it has an id which is what we want
+          //  elementsToTrack.push(docBodyIn[i].id);
+          if(docBodyIn[i].id !== null)
+          {
+            document.getElementById(docBodyIn[i].id).addEventListener("click", function(){track(this.id)} );
+            console.log("adding tracker to ", docBodyIn[i].id);
+          }
+        }
+        catch (e)
+        {
+          //if it doesnt have an id it doesnt need to be tracked
+          //console.log("element doesnt have an id so doesnt need to be tracked");
+        }
+      }
     }
-  }
+
+   }
+
 }
