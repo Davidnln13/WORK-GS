@@ -61,13 +61,12 @@ class DatabaseManager:
 		stmt = ""
 
 		for i in tracker_arr:
-
 			stmt = "UPDATE `{table}` SET {column} = CONCAT(ifnull({column},'{value}'), '{value}') WHERE {field} = '{conditional}';".format(
 				table=table_name,
 				column="logs",
 				value=json.dumps(i),
 				field="email",
-				conditional="q"
+				conditional=i["userID"]
 			)
 
 			cursor.execute(stmt)
